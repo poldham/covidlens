@@ -1,4 +1,4 @@
 library(testthat)
-library(covid19_lens)
+library(covid19lens)
 
-test_check("covid19_lens")
+test_check("covid19lens")
