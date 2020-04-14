@@ -1,12 +1,12 @@
 Package: coronalens
-Title: What the Package Does (One Line, Title Case)
+Title: Scientific and Patent Literature on Corona Virus from the Lens for R
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Paul",
+           family = "Oldham",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           email = "poldham@mac.com",
+           comment = c(ORCID = "0000-0002-1013-4390"))
 Description: What the package does (one paragraph).
 License: What license it uses
 Encoding: UTF-8
