@@ -1,2 +1,8 @@
-^coronalens\.Rproj$
+^covid19_patents\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^data-raw$
+^README\.Rmd$
