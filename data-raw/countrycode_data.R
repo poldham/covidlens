@@ -8,6 +8,7 @@
 #' the receiving office is WIPO under the Patent Cooperation Treaty. These entries
 #' are allocated to the Patent Cooperation Treaty. note that while includes under
 #' iso2c regional and international offices are not included under iso2c
+#' @source countrycode package \url{https://github.com/vincentarelbundock/countrycode}
 
 # fix to the IB entry
 ib <- tibble::tibble(country_name = "Patent Cooperation Treaty",
