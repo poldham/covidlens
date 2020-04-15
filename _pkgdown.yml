@@ -1,1 +1,6 @@
 destination: docs
+title: covidlens
+url: https://poldham.github.io/covidlens/
+template:
+  params:
+    ganalytics: UA-113668064-5
