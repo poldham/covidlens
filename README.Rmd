@@ -9,7 +9,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%", 
+  cache = TRUE,
+  library(tidyverse),
+  library(covid19lens)
 )
 ```
 
@@ -18,43 +21,82 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of covid19lens is to ...
+The COVID-19 Lens package makes 
+
+The goal of covid19lens dataset package is to make the [Lens Patent Collection of Covid-19 patents](https://about.lens.org/covid-19/) created by Osmat Jefferson and the Lens team available to the R and wider patent analytics community. 
+
+There are three types of data available in the Lens collections:
+
+- patents
+- scientific literature
+- patent sequence data
+
+You can view the datasets and file types at the collection repository at:
+
+```{r echo=FALSE}
+knitr::include_graphics("man/figures/collection.png")
+```
+
+This package bundles the data into two data frames for patents and literature that you can access and work with in R.
+
+- The patents dataset consists of 43,075 patent publications (applications, grants, design patents) that are relevant to COVID-19, MERS and SARS and subjects such as respirators and surgical masks.
+- The literature dataset consists of 66,233 scientific publications on the same subjects
+
+Each of the datasets can also be explored interactively on the Lens by following the [links](https://about.lens.org/covid-19/) on the home page. You can also download the individual sets in JSON if you prefer that in your workflows. 
 
 ## Installation
 
-You can install the released version of covid19lens from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("covid19lens")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+Due to its size the package is not intended for CRAN but can be downloaded from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("poldham/covid19lens")
 ```
-## Example
 
-This is a basic example which shows you how to solve a common problem:
+## Patent Data
 
-```{r example}
+When the package is installed, load the library and call the patents data frame.
+
+```{r, message=FALSE, warning=FALSE}
 library(covid19lens)
-## basic example code
+library(tidyverse)
+
+patents %>% 
+  select(lens_id, publication_number, title)
+  
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+The data in the patents table combines the data from the different datasets into one table. A short version of the file names is presented in the `dataset` column.
 
-```{r cars}
-summary(cars)
+```{r message=FALSE, warning=FALSE}
+
+patents %>% 
+  count(dataset, sort = TRUE)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+If you find a record of interest you can use the `lens_id` to upload the record(s) to the Lens (a free account is needed for that) to investigate further. 
 
-You can also embed plots, for example:
+### Literature Data
 
-```{r pressure, echo = FALSE}
-plot(pressure)
+The Literature data frame is accessed in the same way. 
+
+```{r, message=FALSE, warning=FALSE}
+
+literature %>% 
+  select(lens_id, title)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+You can also access the source datasets as for the patents. The names are shortened versions of the file names. 
+
+
+```{r, message=FALSE, warning=FALSE}
+
+literature %>% 
+  count(dataset, sort = TRUE)
+```
+
+
+## The Pipe
+
+The package is tidyverse friendly and the %>% is included. 
+

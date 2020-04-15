@@ -1,4 +1,4 @@
-## code to prepare `countrycode_data` dataset goes here
+## code to prepare `countrycode_data` dataset
 #' @title countrycode_data
 #' @description country code and country name matching table from the country code package. iso2c and the country name field
 #' have been edited to include regional and international patent offices

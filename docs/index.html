@@ -71,20 +71,116 @@
 <a href="#covid19lens" class="anchor"></a>covid19lens</h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>The goal of covid19lens dataset package is to make the <a href="https://about.lens.org/covid-19/">Lens Patent Collection of Covid-19 patents</a> available to the R and wider patent analytics community.</p>
-<p>This repository is presently in a very early stage of development. Please call back later.</p>
+<p>The COVID-19 Lens package makes</p>
+<p>The goal of covid19lens dataset package is to make the <a href="https://about.lens.org/covid-19/">Lens Patent Collection of Covid-19 patents</a> created by Osmat Jefferson and the Lens team available to the R and wider patent analytics community.</p>
+<p>There are three types of data available in the Lens collections:</p>
+<ul>
+<li>patents</li>
+<li>scientific literature</li>
+<li>patent sequence data</li>
+</ul>
+<p>You can view the datasets and file types at the collection repository at:</p>
+<p><img src="reference/figures/collection.png" width="100%"></p>
+<p>This package bundles the data into two data frames for patents and literature that you can access and work with in R.</p>
+<ul>
+<li>The patents dataset consists of 43,075 patent publications (applications, grants, design patents) that are relevant to COVID-19, MERS and SARS and subjects such as respirators and surgical masks.</li>
+<li>The literature dataset consists of 66,233 scientific publications on the same subjects</li>
+</ul>
+<p>Each of the datasets can also be explored interactively on the Lens by following the <a href="https://about.lens.org/covid-19/">links</a> on the home page. You can also download the individual sets in JSON if you prefer that in your workflows.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of covid19lens from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"covid19lens"</span>)</pre></div>
+<p>Due to its size the package is not intended for CRAN but can be downloaded from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"poldham/covid19lens"</span>)</pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="patent-data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<a href="#patent-data" class="anchor"></a>Patent Data</h2>
+<p>When the package is installed, load the library and call the patents data frame.</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">covid19lens</span>)
-<span class="co">## basic example code</span></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)
+
+<span class="no">patents</span> <span class="kw">%&gt;%</span>
+  <span class="fu">select</span>(<span class="no">lens_id</span>, <span class="no">publication_number</span>, <span class="no">title</span>)
+<span class="co">#&gt; # A tibble: 43,075 x 3</span>
+<span class="co">#&gt;    lens_id        publication_numb… title                                       </span>
+<span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;             &lt;chr&gt;                                       </span>
+<span class="co">#&gt;  1 155-914-041-1… WO2008080153A2    A Novel Protein Kinase C Therapy For The Tr…</span>
+<span class="co">#&gt;  2 091-446-683-3… WO2008082719A2    Combined Human Papillomavirus Vlp/gene Deli…</span>
+<span class="co">#&gt;  3 148-612-003-2… WO2008082692A2    Isothiocyanate Compounds, Pharmaceutical Co…</span>
+<span class="co">#&gt;  4 091-662-665-3… WO2008084294A2    Methods Of Vaccine Administration           </span>
+<span class="co">#&gt;  5 151-647-869-6… WO2008088410A2    Influencing Viral Lipid Constituents        </span>
+<span class="co">#&gt;  6 079-689-936-3… WO2008095040A2    2-5a Analogs And Their Methods Of Use       </span>
+<span class="co">#&gt;  7 081-698-724-3… WO2008093173A1    Positively Charged Water-soluble Prodrugs O…</span>
+<span class="co">#&gt;  8 186-157-891-1… WO2008105949A2    Methods Of Screening For Respiratory Syncti…</span>
+<span class="co">#&gt;  9 141-346-197-3… WO2008105934A2    Inactivation Of Toxic Agents And Pathogens …</span>
+<span class="co">#&gt; 10 117-612-537-0… WO2008115199A2    Chimeric Virus Vaccines                     </span>
+<span class="co">#&gt; # … with 43,065 more rows</span></pre></div>
+<p>The data in the patents table combines the data from the different datasets into one table. A short version of the file names is presented in the <code>dataset</code> column.</p>
+<div class="sourceCode" id="cb3"><pre class="r">
+<span class="no">patents</span> <span class="kw">%&gt;%</span>
+  <span class="fu">count</span>(<span class="no">dataset</span>, <span class="kw">sort</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="co">#&gt; # A tibble: 13 x 2</span>
+<span class="co">#&gt;    dataset                            n</span>
+<span class="co">#&gt;    &lt;chr&gt;                          &lt;int&gt;</span>
+<span class="co">#&gt;  1 Ventilators                    16805</span>
+<span class="co">#&gt;  2 broad-keywords                  6896</span>
+<span class="co">#&gt;  3 Respirators-and-surgical-masks  6526</span>
+<span class="co">#&gt;  4 SARS-MERS                       6198</span>
+<span class="co">#&gt;  5 SARS-MERS-TAC                   1588</span>
+<span class="co">#&gt;  6 CPC                             1470</span>
+<span class="co">#&gt;  7 SARS                            1390</span>
+<span class="co">#&gt;  8 SARS-treatment                   782</span>
+<span class="co">#&gt;  9 declared-patseq-organism         762</span>
+<span class="co">#&gt; 10 SARS-diagnosis                   271</span>
+<span class="co">#&gt; 11 MERS                             259</span>
+<span class="co">#&gt; 12 MERS-treatment                   110</span>
+<span class="co">#&gt; 13 MERS-diagnosis                    18</span></pre></div>
+<p>If you find a record of interest you can use the <code>lens_id</code> to upload the record(s) to the Lens (a free account is needed for that) to investigate further.</p>
+<div id="literature-data" class="section level3">
+<h3 class="hasAnchor">
+<a href="#literature-data" class="anchor"></a>Literature Data</h3>
+<p>The Literature data frame is accessed in the same way.</p>
+<div class="sourceCode" id="cb4"><pre class="r">
+<span class="no">literature</span> <span class="kw">%&gt;%</span>
+  <span class="fu">select</span>(<span class="no">lens_id</span>, <span class="no">title</span>)
+<span class="co">#&gt; # A tibble: 66,233 x 2</span>
+<span class="co">#&gt;    lens_id           title                                                      </span>
+<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;                                                      </span>
+<span class="co">#&gt;  1 000-000-683-519-… Protocol of a randomized controlled trial testing inhaled …</span>
+<span class="co">#&gt;  2 000-002-357-318-… SARのTMFと信頼伝搬を利用した教師なし画像セグメンテーション【JST・京大機械翻訳】…</span>
+<span class="co">#&gt;  3 000-004-088-487-… Comparative proteomics of nasal fluid in seasonal allergic…</span>
+<span class="co">#&gt;  4 000-011-532-909-… Effect of Asian sand dust on Japanese cedar pollinosis     </span>
+<span class="co">#&gt;  5 000-012-257-396-… Uncertainty in SARS epidemiology                           </span>
+<span class="co">#&gt;  6 000-013-075-068-… "Science communication in critical incident the\"SARS\"and…</span>
+<span class="co">#&gt;  7 000-016-401-960-… Intrinsic Thermodynamics of Protein-Ligand Binding by Isot…</span>
+<span class="co">#&gt;  8 000-025-802-591-… The application of high precision digital acquisition syst…</span>
+<span class="co">#&gt;  9 000-028-604-209-… Severe acute respiratory syndrome :Guidelines were drawn u…</span>
+<span class="co">#&gt; 10 000-029-090-081-… News discourses on distant suffering: a Critical Discourse…</span>
+<span class="co">#&gt; # … with 66,223 more rows</span></pre></div>
+<p>You can also access the source datasets as for the patents. The names are shortened versions of the file names.</p>
+<div class="sourceCode" id="cb5"><pre class="r">
+<span class="no">literature</span> <span class="kw">%&gt;%</span>
+  <span class="fu">count</span>(<span class="no">dataset</span>, <span class="kw">sort</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="co">#&gt; # A tibble: 9 x 2</span>
+<span class="co">#&gt;   dataset                             n</span>
+<span class="co">#&gt;   &lt;chr&gt;                           &lt;int&gt;</span>
+<span class="co">#&gt; 1 Coronavirus-broad               37166</span>
+<span class="co">#&gt; 2 Coronavirus-SARS                14683</span>
+<span class="co">#&gt; 3 Coronavirus-COVID19              5947</span>
+<span class="co">#&gt; 4 Coronavirus-diagnosis-treatment  2817</span>
+<span class="co">#&gt; 5 Coronavirus-MERS                 1593</span>
+<span class="co">#&gt; 6 Coronavirus-treatment            1481</span>
+<span class="co">#&gt; 7 Coronavirus-SARS-diagnosis       1333</span>
+<span class="co">#&gt; 8 Coronavirus-transmission          929</span>
+<span class="co">#&gt; 9 Coronavirus-MERS-diagnosis        284</span></pre></div>
+</div>
+</div>
+<div id="the-pipe" class="section level2">
+<h2 class="hasAnchor">
+<a href="#the-pipe" class="anchor"></a>The Pipe</h2>
+<p>The package is tidyverse friendly and the %&gt;% is included.</p>
 </div>
 </div>
   </div>
