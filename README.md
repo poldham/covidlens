@@ -7,10 +7,11 @@
 
 <!-- badges: end -->
 
-The goal of covidlens dataset package is to make the [Lens Patent
-Collection of Covid-19 patents](https://about.lens.org/covid-19/)
-created by Osmat Jefferson and the Lens team available to the R and
-wider patent analytics community.
+The goal of covidlens dataset package is to make the [Lens Collection of
+Covid-19 patents and scientific
+literature](https://about.lens.org/covid-19/) created by Osmat Jefferson
+and the Lens team available to the R and wider patent analytics
+community.
 
 There are three types of data available in the Lens collections:
 
