@@ -49,6 +49,10 @@ downloaded from [GitHub](https://github.com/) with:
 devtools::install_github("poldham/covidlens")
 ```
 
+Python users may want to [clone or download the
+repo](https://github.com/poldham/covidlens) and then use the csv.bz2
+files in `data` or the raw files found in `data-raw`.
+
 ## Patent Data
 
 When the package is installed, load the library and call the patents
@@ -150,6 +154,31 @@ literature %>%
 #> 8 Coronavirus-transmission          929
 #> 9 Coronavirus-MERS-diagnosis        284
 ```
+
+<!---## Python
+
+Python users will find the processed data in the "data" folder and the raw files zipped in "data-raw" when cloning the [Github repo](https://github.com/poldham/covidlens/).
+
+
+```python
+import pandas as pd
+
+patents = pd.read_csv("data/patents.csv.bz2)
+
+print(patents)
+```
+
+
+```python
+
+import pandas as pd
+
+literature = pd.read_csv("data/literature.csv)
+
+print(literature)
+```
+
+--->
 
 ## The Pipe
 
