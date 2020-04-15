@@ -1,4 +1,4 @@
-Package: covid19lens
+Package: covidlens
 Title: Scientific and Patent Literature on Corona Virus from the Lens for R
 Version: 0.0.0.9000
 Authors@R: 
@@ -11,8 +11,8 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/poldham/covid19lens
-BugReports: https://github.com/poldham/covid19lens/issues
+URL: https://github.com/poldham/covidlens
+BugReports: https://github.com/poldham/covidlens/issues
 Suggests: 
     testthat (>= 2.1.0)
 RoxygenNote: 7.0.0

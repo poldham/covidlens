@@ -7,8 +7,8 @@ library(lubridate)
 library(janitor)
 
 # funs
-source('~/covid19lens/data-raw/import.R')
-source('~/covid19lens/data-raw/zzz.R')
+source('~/covidlens/data-raw/import.R')
+source('~/covidlens/data-raw/zzz.R')
 
 # code for processing
 

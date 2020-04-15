@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# covid19lens
+# covidlens
 
 <!-- badges: start -->
 
@@ -9,7 +9,7 @@
 
 The COVID-19 Lens package makes
 
-The goal of covid19lens dataset package is to make the [Lens Patent
+The goal of covidlens dataset package is to make the [Lens Patent
 Collection of Covid-19 patents](https://about.lens.org/covid-19/)
 created by Osmat Jefferson and the Lens team available to the R and
 wider patent analytics community.
@@ -47,7 +47,7 @@ downloaded from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("poldham/covid19lens")
+devtools::install_github("poldham/covidlens")
 ```
 
 ## Patent Data
@@ -56,7 +56,7 @@ When the package is installed, load the library and call the patents
 data frame.
 
 ``` r
-library(covid19lens)
+library(covidlens)
 library(tidyverse)
 
 patents %>% 

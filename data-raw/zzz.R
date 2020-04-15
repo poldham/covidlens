@@ -11,7 +11,7 @@ country_name <- function(x, col){
   # convert to tidy evaluation
   # load the country code and instrument table
 
-  load("~/covid19lens/data-raw/countrycode_data.rda")
+  load("~/covidlens/data-raw/countrycode_data.rda")
 
   cc <- countrycode_data %>%
     dplyr::select(iso2c, country_name)
