@@ -98,6 +98,11 @@
 <p>Due to its size the package is not intended for CRAN but can be downloaded from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
 <span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"poldham/covidlens"</span>)</pre></div>
+<div id="python-users" class="section level3">
+<h3 class="hasAnchor">
+<a href="#python-users" class="anchor"></a>Python Users</h3>
+<p>Python users may want to <a href="https://github.com/poldham/covidlens">clone or download the repo</a> and then use the csv.bz2 files in <code>data</code> or the raw files found in <code>data-raw</code>.</p>
+</div>
 </div>
 <div id="patent-data" class="section level2">
 <h2 class="hasAnchor">
@@ -180,6 +185,30 @@
 <span class="co">#&gt; 7 Coronavirus-SARS-diagnosis       1333</span>
 <span class="co">#&gt; 8 Coronavirus-transmission          929</span>
 <span class="co">#&gt; 9 Coronavirus-MERS-diagnosis        284</span></pre></div>
+<!---## Python
+
+Python users will find the processed data in the "data" folder and the raw files zipped in "data-raw" when cloning the [Github repo](https://github.com/poldham/covidlens/).
+
+
+```python
+import pandas as pd
+
+patents = pd.read_csv("data/patents.csv.bz2)
+
+print(patents)
+```
+
+
+```python
+
+import pandas as pd
+
+literature = pd.read_csv("data/literature.csv)
+
+print(literature)
+```
+
+--->
 </div>
 </div>
 <div id="the-pipe" class="section level2">

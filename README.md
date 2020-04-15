@@ -49,6 +49,8 @@ downloaded from [GitHub](https://github.com/) with:
 devtools::install_github("poldham/covidlens")
 ```
 
+### Python Users
+
 Python users may want to [clone or download the
 repo](https://github.com/poldham/covidlens) and then use the csv.bz2
 files in `data` or the raw files found in `data-raw`.
