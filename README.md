@@ -7,8 +7,6 @@
 
 <!-- badges: end -->
 
-The COVID-19 Lens package makes
-
 The goal of covidlens dataset package is to make the [Lens Patent
 Collection of Covid-19 patents](https://about.lens.org/covid-19/)
 created by Osmat Jefferson and the Lens team available to the R and
