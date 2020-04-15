@@ -31,9 +31,9 @@ There are three types of data available in the Lens collections:
 - scientific literature
 - patent sequence data
 
-You can view the datasets and file types at the collection repository at:
+You can view the datasets and file types at the [Lens collection home page](https://about.lens.org/covid-19/).
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig}
 knitr::include_graphics("man/figures/collection.png")
 ```
 

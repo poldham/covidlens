@@ -20,8 +20,8 @@ There are three types of data available in the Lens collections:
   - scientific literature
   - patent sequence data
 
-You can view the datasets and file types at the collection repository
-at:
+You can view the datasets and file types at the [Lens collection home
+page](https://about.lens.org/covid-19/).
 
 <img src="man/figures/collection.png" width="100%" />
 
@@ -33,7 +33,7 @@ literature that you can access and work with in R.
     COVID-19, MERS and SARS and subjects such as respirators and
     surgical masks.
   - The literature dataset consists of 66,233 scientific publications on
-    the same subjects
+    the same subjects.
 
 Each of the datasets can also be explored interactively on the Lens by
 following the [links](https://about.lens.org/covid-19/) on the home
